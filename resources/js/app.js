@@ -6,9 +6,9 @@ import * as VueRouter from 'vue-router'
 import HomeComponent from './components/HomeComponent.vue'
 import DashboardComponent from './components/DashboardComponent.vue'
 
-import store from './store'
+
 const app = createApp({})
-app.use(store)
+
 const routes = [
     {path: '/', component: HomeComponent},
     {path: '/dashboard',name: 'dashboard', component: DashboardComponent},
