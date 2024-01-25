@@ -25,7 +25,9 @@ return new class extends Migration
             $table->date('checkOutDate');
             $table->unsignedBigInteger('accommodation_id');
             $table->unsignedBigInteger('travel_agent_id');
+
             $table->decimal('totals', 8);
+             $table->string('status')->default('active');
             $table->foreign('accommodation_id')->references('id')->on('accommodations')->onDelete('cascade');
            $table->foreign('travel_agent_id')->references('id')->on('travel_agents')->onDelete('cascade');
             $table->timestamps();

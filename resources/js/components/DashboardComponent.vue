@@ -599,9 +599,9 @@ export default {
         },
 
 
-        async filterContracts()
+       async filterContracts()
         {
-
+        
          const response=await axios.get('api/getContractRates/'+this.accommodationData.id +'/'+this.agentId)
          this.contractRates=response.data
          console.log(response.data)
@@ -703,6 +703,7 @@ export default {
             if(this.contractData.id && this.contractData.contract_rates && this.contractData.start_date && this.contractData.end_date && this.contractData.accommodation && this.contractData.agent) {
                 axios.post(window.url + 'api/updateContract/'+this.contractData.id, this.contractData).then(response => {
                     this.getContracts()
+                    this.filterContracts()
                 }).catch(errors => {
                     console.log(errors)
                 }).finally(() => {
@@ -762,6 +763,7 @@ export default {
             if(this.contractData.contract_rates && this.contractData.start_date && this.contractData.end_date && this.contractData.accommodation && this.contractData.agent) {
                 axios.post(window.url + 'api/storeContract', this.contractData).then(response => {
                     this.getContracts()
+                    this.filterContracts()
                 }).catch(errors => {
                     console.log(errors)
                 }).finally(() => {

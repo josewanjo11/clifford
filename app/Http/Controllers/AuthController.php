@@ -31,7 +31,7 @@ class AuthController extends Controller
 
          public function addAgent(Request $request)
     {
-        User::create([
+        travel_agents::create([
             'name'         => $request->name,
             'email'          => $request->email,
             'phone'          => $request->phone,

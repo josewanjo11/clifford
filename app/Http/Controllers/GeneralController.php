@@ -36,7 +36,7 @@ class GeneralController extends Controller
     }
     public function getContractRates($accommodation_id,$agent_id)
     {
-        return response()->json(contracts::where('accommodation_id',$accommodation_id)->where('travel_agent_id',$agent_id)->whereDate('start_date','<=',\Carbon\Carbon::Now())->whereDate('end_date','>=',\Carbon\Carbon::Now())->get());
+        return response()->json(contracts::where('accommodation_id',$accommodation_id)->where('travel_agent_id',$agent_id)->whereDate('start_date','<=',\Carbon\Carbon::tomorrow())->whereDate('end_date','>=',\Carbon\Carbon::today())->get());
     }
 
     public function getAgents()
